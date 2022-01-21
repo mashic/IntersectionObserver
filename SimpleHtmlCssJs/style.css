@@ -9,9 +9,9 @@
     border: 2px solid black;
     border-radius: 0.25rem;
     padding: .5rem;
-    transform: translateX(100px);
+    transform: translateX(200px);
     opacity: 0;
-    transition: all 0.15s ease-in-out;
+    transition: all 0.25s ease-in-out;
     height: 20vh;
     width: 95%;
     font-size: larger;

@@ -1,0 +1,251 @@
+<!DOCTYPE html >
+<html>
+  <head>
+    <title>Pug</title>
+    <style>@import url("https://fonts.googleapis.com/css?family=Heebo:900&display=swap");
+:root {
+  --black: rgb( 20, 20, 20);
+  --blue: rgb( 57, 32, 194);
+  --yellow: rgb(241, 243, 112);
+  --pink: rgb(245, 194, 191);
+  --white: rgb(238, 232, 218);
+  --color-text: var(--black);
+  --color-body: var(--white);
+  --font-primary: "Heebo", sans-serif;
+  --font-secondary: courier-prime, monospace;
+  --heading-letter-spacing: 0.025em;
+  --heading-font-family: var(--font-primary);
+  --page-width: $bp-large;
+  --base-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--color-text);
+  background-color: var(--color-body);
+  font-family: var(--font-secondary);
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--blue);
+}
+
+.whitespace {
+  padding: 0.2em;
+}
+
+.featured-content {
+  position: relative;
+}
+
+.feature {
+  position: relative;
+  width: 100%;
+  background-color: var(--yellow);
+}
+@media (min-width: 800px) {
+  .feature {
+    overflow: hidden;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+    height: 100vh;
+  }
+}
+.feature:nth-child(2n) {
+  background-color: var(--pink);
+}
+.feature:nth-child(3n) {
+  background-color: var(--white);
+}
+@media (min-width: 800px) {
+  .feature:nth-child(odd) .feature-inner {
+    flex-direction: row-reverse;
+  }
+  .feature:nth-child(odd) .feature-image-container {
+    margin-right: 4rem;
+    transform: translateX(-2rem);
+  }
+  .feature:nth-child(odd).show-feature .feature-image-container {
+    transform: translateX(0%);
+  }
+}
+@media (min-width: 800px) {
+  .feature:nth-child(even) .feature-inner {
+    flex-direction: row;
+  }
+  .feature:nth-child(even) .feature-image-container {
+    margin-left: 4rem;
+    transform: translateX(2rem);
+  }
+  .feature:nth-child(even).show-feature .feature-image-container {
+    transform: translateX(0%);
+  }
+}
+
+.feature-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1450px;
+}
+@media (min-width: 800px) {
+  .feature-inner {
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 100vh;
+  }
+}
+.feature-inner > * {
+  flex: 0 1 50%;
+}
+
+.feature-image-container {
+  position: relative;
+  margin-top: 2rem;
+  opacity: 0;
+  transition: opacity 0.5s var(--base-timing-function), transform 0.5s var(--base-timing-function);
+}
+.show-feature .feature-image-container {
+  opacity: 1;
+}
+@media (min-width: 800px) {
+  .feature-image-container {
+    margin-top: 0;
+    max-width: 70vmin;
+  }
+}
+.feature-image-container img {
+  position: relative;
+  width: 100%;
+  vertical-align: bottom;
+  z-index: 2;
+}
+
+.feature-copy {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.5s var(--base-timing-function), transform 0.5s var(--base-timing-function);
+}
+.show-feature .feature-copy {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-headline {
+  font-size: calc(1rem + 5vmin);
+  font-family: var(--heading-font-family);
+  letter-spacing: var(--heading-letter-spacing);
+  text-transform: uppercase;
+}
+
+.feature-subheadline {
+  margin-top: 0.5rem;
+  font-size: calc(1rem + 2.5vmin);
+  font-family: var(--heading-font-family);
+  letter-spacing: var(--heading-letter-spacing);
+  text-transform: uppercase;
+}
+
+.feature-text {
+  margin-top: 2rem;
+  font-size: calc(1rem + 0.5vmin);
+  font-family: var(--font-secondary);
+  line-height: 1.4;
+}
+
+/*# sourceMappingURL=style.css.map */
+
+    </style>
+  </head>
+  <body>
+    <section class="featured-content">
+      <div class="feature">
+        <div class="feature-inner">
+          <div class="feature-copy">
+            <h2 class="feature-headline">Arc Rae</h2>
+            <h3 class="feature-subheadline">Sacred Ground</h3>
+            <p class="feature-text"><a href="#">Pre-order</a> the new cassette. Orders ship this Tuesday.</p>
+          </div>
+          <div class="feature-image-container"><img class="feature-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/cassette-1.jpeg" alt="Arc Rae cassette tape"/></div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-inner">
+          <div class="feature-copy">
+            <h2 class="feature-headline">Gemini Horror</h2>
+            <h3 class="feature-subheadline">Four Birds</h3>
+            <p class="feature-text">Limited edition cassette <a href="#">available now</a>.</p>
+          </div>
+          <div class="feature-image-container"><img class="feature-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/cassette-2.jpeg" alt="Gemini Horror cassette tape"/></div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-inner">
+          <div class="feature-copy">
+            <h2 class="feature-headline">Artist Spotlight:</h2>
+            <h3 class="feature-subheadline">Dissolve in Sepia</h3>
+            <p class="feature-text">Dissolve In Sepia is the alias of Brazilian composer and producer Ramon Fassina. Get to know the artist behind the work. <a href="#">Read on &rarr;</a></p>
+          </div>
+          <div class="feature-image-container"><img class="feature-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/dissolve-in-sepia.jpeg" alt="Gemini Horror cassette tape"/></div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-inner">
+          <div class="feature-copy">
+            <h2 class="feature-headline">Arc Rae</h2>
+            <h3 class="feature-subheadline">Sacred Ground</h3>
+            <p class="feature-text"><a href="#">Pre-order</a> the new cassette. Orders ship this Tuesday.</p>
+          </div>
+          <div class="feature-image-container"><img class="feature-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/cassette-1.jpeg" alt="Arc Rae cassette tape"/></div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-inner">
+          <div class="feature-copy">
+            <h2 class="feature-headline">Gemini Horror</h2>
+            <h3 class="feature-subheadline">Four Birds</h3>
+            <p class="feature-text">Limited edition cassette <a href="#">available now</a>.</p>
+          </div>
+          <div class="feature-image-container"><img class="feature-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/cassette-2.jpeg" alt="Gemini Horror cassette tape"/></div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-inner">
+          <div class="feature-copy">
+            <h2 class="feature-headline">Artist Spotlight:</h2>
+            <h3 class="feature-subheadline">Dissolve in Sepia</h3>
+            <p class="feature-text">Dissolve In Sepia is the alias of Brazilian composer and producer Ramon Fassina. Get to know the artist behind the work. <a href="#">Read on &rarr;</a></p>
+          </div>
+          <div class="feature-image-container"><img class="feature-image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/dissolve-in-sepia.jpeg" alt="Gemini Horror cassette tape"/></div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>const features = document.querySelectorAll('.feature');
+
+observer = new IntersectionObserver(sections => {
+  sections.forEach(section => {
+    console.log(section)
+    if (section.intersectionRatio > 0.4) {
+      section.target.classList.add('show-feature');
+    } else {
+      section.target.classList.remove('show-feature');
+    }
+  });
+}, { threshold: 0.4 });
+
+features.forEach(feature => observer.observe(feature))
+
+  </script>
+</html>
